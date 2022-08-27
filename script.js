@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", start);
 
 let num1;
 let num2;
+let convertedNumber1;
+let convertedNumber2;
 let result;
 let opValue;
 let roundValue;
@@ -34,19 +36,24 @@ function readNumbers() {
 
   // read first number:
   num1 = document.querySelector("#firstnumber").value;
-  console.log(num1);
+  console.log("number 1 is:", num1);
 
   // read second number:
   num2 = document.querySelector("#secondnumber").value;
-  console.log(num2);
+  console.log("number 2 is:", num2);
 
   // read operator + - * /:
   opValue = document.querySelector("#operator").value;
   console.log(opValue);
 
-  // LAV STRINGS OM TIL NUMBERS HER????!!!! Se slides.
+  // convert strings to numbers:
+  convertedNumber1 = Number(num1);
+  console.log("converted number is:", typeof convertedNumber1);
 
-  // if sentence for operators - shot new functions?:
+  convertedNumber2 = Number(num2);
+  console.log("converted number is:", typeof convertedNumber2);
+
+  // if sentence for operators - shoot new functions?:
   if (opValue === "add") {
     addNumbers();
   } else if (opValue === "sub") {
@@ -64,9 +71,8 @@ function readNumbers() {
 function addNumbers() {
   console.log("addNumbers func loaded");
 
-  // SKAL TALLENE LAVES OM TIL NUMBERS??? JA TAK!! I EN ANDEN FUNKTION, SÅ DET BLIVER GENERELT?
-  // læg tallene sammen:
-  result = num1 + num2;
+  // add converted numbers:
+  result = convertedNumber1 + convertedNumber2;
   console.log(result);
 
   toRoundOrNot();
@@ -75,8 +81,9 @@ function addNumbers() {
 function subNumbers() {
   console.log("subNumbers func loaded");
 
-  // træk tallene fra hinanden:
-  result = num1 - num2;
+  // subtract numbers:
+  result = convertedNumber1 - convertedNumber2;
+  console.log("resultatet er:", result);
 
   toRoundOrNot();
 }
@@ -85,6 +92,8 @@ function mulNumbers() {
   console.log("mulNumbers func loaded");
 
   // gang tallene med hinanden:
+  result = convertedNumber1 * convertedNumber2;
+  console.log("resultatet er:", result);
 
   toRoundOrNot();
 }
@@ -93,6 +102,8 @@ function divNumbers() {
   console.log("divNumbers func loaded");
 
   // divider tallene med hinanden:
+  result = convertedNumber1 / convertedNumber2;
+  console.log("resultatet er:", result);
 
   toRoundOrNot();
 }

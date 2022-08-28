@@ -14,6 +14,11 @@ let resultToAppend;
 function start() {
   console.log("start func loaded");
 
+  //fjern evt. eventlistener:
+  // remove eventlistener for click on "calculate" and "clear results":
+  document.querySelector("#calculate").removeEventListener("click", readNumbers);
+  document.querySelector("#clear").removeEventListener("click", clearResults);
+
   // add eventlistener på "calculate" knap og "clear" knap:
   document.querySelector("#calculate").addEventListener("click", readNumbers);
   document.querySelector("#clear").addEventListener("click", clearResults);
@@ -22,14 +27,8 @@ function start() {
 function clearResults() {
   console.log("clearResults func loaded");
 
-  // gem seneste resultat (TJEK) i en let:
-
   // clear liste:
-
-  // append resultat i first input field:
-
-  // fjern eventlistener "click":
-  document.querySelector("#clear").removeEventListener("click", clearResults);
+  document.getElementById("results").innerHTML = "";
 
   start();
 }
@@ -179,19 +178,17 @@ function writeFirstResult() {
 
   // insert result in list:
   document.getElementById("results").innerHTML = result;
-  console.log("is the result inserted in list?");
 
   // removes number + insert result in first field:
   document.getElementById("firstnumber").value = "";
   document.getElementById("firstnumber").value = result;
 
-  // remove eventlistener for click on "clear results":
-  //document.querySelector("#clear").removeEventListener("click", clearResults);
-
-  // add eventlistener for another round of reading and calculating:
-  document.querySelector("#calculate").addEventListener("click", readNumbers);
+  // if sentence asking if list is full - if so go to scrollList():
+  start();
 }
 
 function scrollList() {
   console.log("scrollList func loaded");
+
+  document.querySelector("#results").scrollTo(0.1);
 }

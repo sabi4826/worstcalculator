@@ -182,10 +182,13 @@ function writeFirstResult() {
   console.log("is the result inserted in list?");
 
   // removes number + insert result in first field:
-  document.getElementById("firstnumber").innerHTML = "";
-  document.getElementById("firstnumber").innerHTML = result;
-  console.log("is the result inserted in text field?");
-  scrollList();
+  document.getElementById("firstnumber").value = "";
+  document.getElementById("firstnumber").value = result;
+  console.log("is the result inserted in text field?"); // JA TAK!!
+  console.log("typeof firstnumber", firstnumber);
+
+  // back to start() for another round:
+  start();
 }
 
 function scrollList() {

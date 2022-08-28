@@ -171,7 +171,7 @@ function doTheRound() {
     console.log("rounded + converted result is:", result);
   }
 
-  //writeFirstResult();
+  writeFirstResult();
 }
 
 function writeFirstResult() {
@@ -184,11 +184,12 @@ function writeFirstResult() {
   // removes number + insert result in first field:
   document.getElementById("firstnumber").value = "";
   document.getElementById("firstnumber").value = result;
-  console.log("is the result inserted in text field?"); // JA TAK!!
-  console.log("typeof firstnumber", firstnumber);
 
-  // back to start() for another round:
-  start();
+  // remove eventlistener for click on "clear results":
+  //document.querySelector("#clear").removeEventListener("click", clearResults);
+
+  // add eventlistener for another round of reading and calculating:
+  document.querySelector("#calculate").addEventListener("click", readNumbers);
 }
 
 function scrollList() {
